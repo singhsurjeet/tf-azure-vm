@@ -1,3 +1,5 @@
 .terraform/*
 plan.out
-terraform.tfstate*
+terraform.tfstate
+terraform.tfstate.backup
+.idea/*
