@@ -3,3 +3,5 @@ plan.out
 terraform.tfstate
 terraform.tfstate.backup
 .idea/*
+modules/.DS_Store
+.DS_Store
