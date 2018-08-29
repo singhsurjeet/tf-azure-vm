@@ -12,6 +12,3 @@ variable "vm-size" {}
 
 variable "vm-count" {}
 
-variable "boot_diagnostics" {
-  default = true
-}

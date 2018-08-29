@@ -25,7 +25,7 @@ variable "subnet_names" {
 }
 
 variable "ssh-public-key" {
-  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDKIxn1R7jKSYzJUOHG1UeVTQ406uLVgnwe8GrlbH54Y/+2evhH94W5Z1Vqb5SKiSC7NfrtO2TbAglgAH7/iIkX/VbUQmubKGoSIgwjHsjCWtHgedh69q7HEuXqfOhRJ0CheUa0abCDYN8cEdABDaODiZpQi1RMWDiHeCL37u9WmdesYX2oukodZerNioqcIyu9WTA6I60EBGWXPcqTZLCDnxcJIQntAAOu/AHPOKsn+t7nX33EwzSaSDTZCE6Nfmz2jr7eVMSzbKulz4ohIY1s5Vm4a0HyNWF6XKRiRMDzXFvH3CfwqzpOpXzRZuIkt+GO/UHFuTNdwNTFs9dmsE7R sursingh10@WKMGB0869902"
+  default = "~/.ssh/id_rsa.pub"
 }
 
 variable "vmsize-master" {

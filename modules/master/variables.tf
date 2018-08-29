@@ -9,3 +9,4 @@ variable "subnet1" {}
 variable "ssh-key" {}
 
 variable "vm-size" {}
+

@@ -3,7 +3,7 @@ resource "azurerm_public_ip" "publicIP" {
   name                         = "publicIPmaster"
   location                     = "${var.region}"
   resource_group_name          = "${var.rsg}"
-  public_ip_address_allocation = "dynamic"
+  public_ip_address_allocation = "static"
 }
 
 resource "azurerm_network_security_group" "sg" {
@@ -72,6 +72,20 @@ resource "azurerm_storage_account" "storageaccount" {
   account_tier = "Standard"
 }
 
+data "template_file" "cloudconfig" {
+  template = "${file("${path.module}/cloudconfig.sh")}"
+}
+
+data "template_cloudinit_config" "config" {
+  gzip          = true
+  base64_encode = true
+
+  part {
+    content_type = "text/x-shellscript"
+    content      = "${data.template_file.cloudconfig.rendered}"
+  }
+}
+
 resource "azurerm_virtual_machine" "vm" {
   name = "master-vm"
   location = "${var.region}"
@@ -99,13 +113,15 @@ resource "azurerm_virtual_machine" "vm" {
   os_profile {
     computer_name = "master"
     admin_username = "azureuser"
+    custom_data    = "${data.template_cloudinit_config.config.rendered}"
   }
 
   os_profile_linux_config {
     disable_password_authentication = true
     ssh_keys {
       path = "/home/azureuser/.ssh/authorized_keys"
-      key_data = "${var.ssh-key}"  }
+      key_data = "${file("${var.ssh-key}")}"
+    }
   }
 
   boot_diagnostics {
