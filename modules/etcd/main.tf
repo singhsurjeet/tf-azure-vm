@@ -12,14 +12,28 @@ resource "azurerm_network_security_group" "sg" {
   resource_group_name = "${var.rsg}"
 }
 
-resource "azurerm_network_security_rule" "ssh-inbound"  {
-  name                       = "SSH-inbound"
+resource "azurerm_network_security_rule" "all-inbound"  {
+  name                       = "all-inbound"
   priority                   = 1001
   direction                  = "Inbound"
   access                     = "Allow"
   protocol                   = "Tcp"
   source_port_range          = "*"
-  destination_port_range     = "22"
+  destination_port_range     = "*"
+  source_address_prefix      = "*"
+  destination_address_prefix = "*"
+  resource_group_name        = "${var.rsg}"
+  network_security_group_name  = "${azurerm_network_security_group.sg.name}"
+}
+
+resource "azurerm_network_security_rule" "all-outbound"  {
+  name                       = "all-outbound"
+  priority                   = 1001
+  direction                  = "Outbound"
+  access                     = "Allow"
+  protocol                   = "Tcp"
+  source_port_range          = "*"
+  destination_port_range     = "*"
   source_address_prefix      = "*"
   destination_address_prefix = "*"
   resource_group_name        = "${var.rsg}"
