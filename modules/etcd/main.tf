@@ -91,6 +91,7 @@ data "template_cloudinit_config" "config" {
 
 
 resource "azurerm_virtual_machine" "vm" {
+  count = "${var.vm-count}"
   name = "etcd-vm"
   location = "${var.region}"
   resource_group_name = "${var.rsg}"
