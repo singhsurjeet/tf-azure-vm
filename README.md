@@ -1,5 +1,5 @@
 
-# Kubernetes Infra provisioning via terraform
+# k8s Infra provisioning
 This guide will walk you through setting up the Azure infrastructure for kubernets,which can be further deployed using the Kismatic Enterprise Toolkit (KET).
 
 ## Pre-reqs:
@@ -12,10 +12,10 @@ This guide will walk you through setting up the Azure infrastructure for kuberne
                 
 ## Modules structuring
 
-`network` creates the virtual network in the azure
-`master`  creates the master node requirments for k8s
-`etcd`    creates the etcd node requirments for k8s
-`worker`  creates the worker node requirments for k8s
+- `network` creates the virtual network in the azure
+- `master`  creates the master node requirments for k8s
+- `etcd`    creates the etcd node requirments for k8s
+- `worker`  creates the worker node requirments for k8s
 
 ## Usage Instructions
 
