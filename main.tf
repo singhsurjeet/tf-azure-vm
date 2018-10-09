@@ -15,7 +15,7 @@ module "network" {
 
 module "master" {
   source = "modules/master"
-
+  vm-count        = "${var.master_count}"
   region          = "${var.region}"
   environment     = "${var.environment}"
   rsg             = "${module.network.rsg}"
@@ -27,6 +27,7 @@ module "master" {
 module "etcd" {
   source = "modules/etcd"
 
+  vm-count        = "${var.etcd_count}"
   region          = "${var.region}"
   environment     = "${var.environment}"
   rsg             = "${module.network.rsg}"
@@ -38,7 +39,7 @@ module "etcd" {
 module "worker" {
   source = "modules/worker"
 
-  vm-count        = 2
+  vm-count        = "${var.worker_count}"
   region          = "${var.region}"
   environment     = "${var.environment}"
   rsg             = "${module.network.rsg}"
