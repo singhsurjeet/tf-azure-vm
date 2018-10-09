@@ -39,3 +39,15 @@ variable "vmsize-worker" {
 variable "vmsize-etcd" {
   default = "Standard_B1s"
 }
+
+variable "etcd_count" {
+  default = "1"
+}
+
+variable "master_count" {
+  default = "1"
+}
+
+variable "worker_count" {
+  default = "1"
+}
