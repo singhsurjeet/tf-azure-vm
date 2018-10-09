@@ -1,5 +1,5 @@
 
-# k8s Infra provisioning
+# k8s Infra provisioning on Azure
 This guide will walk you through setting up the Azure infrastructure for kubernets,which can be further deployed using the Kismatic Enterprise Toolkit (KET).
 
 ## Pre-reqs:
@@ -19,8 +19,10 @@ This guide will walk you through setting up the Azure infrastructure for kuberne
 
 ## Usage Instructions
 
+- Log into Azure using the azure CLI: `az login`
 - `./tplan.sh` Generates the terraform plan to provision the infra
-- `./taaply.sh` Apply the generated plan to create the infra on azure
+- `./tapply.sh` Apply the generated plan to create the infra on azure
+
 
 ## Module invocation usage
 ```hcl
@@ -37,6 +39,9 @@ module "network" {
 
 }
 ```
+
+### Next, follow instructions on to get your cluster up via Kismatic
+https://github.com/apprenda/kismatic
   
 
 
