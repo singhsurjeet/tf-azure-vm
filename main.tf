@@ -15,6 +15,7 @@ module "network" {
 
 module "master" {
   source = "modules/master"
+  
   vm-count        = "${var.master_count}"
   region          = "${var.region}"
   environment     = "${var.environment}"
