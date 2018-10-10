@@ -1,6 +1,6 @@
 
 # k8s Infra provisioning on Azure
-This guide will walk you through setting up the Azure infrastructure for kubernets,which can be further deployed using the Kismatic Enterprise Toolkit (KET).
+This guide will walk you through setting up the Azure infrastructure for kubernetes,which can be further deployed using the Kismatic Enterprise Toolkit (KET).
 
 ## Pre-reqs:
 
